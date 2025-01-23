@@ -1,5 +1,6 @@
 import requests
 import time
+from datetime import datetime
 
 def check_website(url):
     try:
@@ -13,10 +14,11 @@ def check_website(url):
 
 if __name__ == "__main__":
     while True:
+        now = datetime.now()
         website_url = "http://beta.bliptext.com"
         if check_website(website_url):
-            print(f"{website_url} is up and running.")
+            print(f"{website_url} is up and running at {now.strftime('%H:%M')}.")
             break
         else:
-            print(f"{website_url} is not accessible.")
+            print(f"{website_url} is not accessible at {now.strftime('%H:%M')}.")
         time.sleep(60)
